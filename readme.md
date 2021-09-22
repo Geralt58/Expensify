@@ -3,7 +3,7 @@
 git init - create a new git repo
 git status -view the changes to your project code
 git add - add files to staging area
-git commit -  Creates a new commit to file from staging area
+git commit - Creates a new commit to file from staging area
 git log - view recent commits
 
 git init
@@ -15,3 +15,12 @@ git commit -m "remove dummy expense data"
 git log
 ls -a ~/.ssh
 git push -u origin master
+git commit -am "message"
+
+#heroku commands
+
+heroku login
+heroku create geralt58-expensify
+git remote -v
+git add and push
+git push heroku master
