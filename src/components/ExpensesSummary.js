@@ -4,7 +4,7 @@ import numeral from 'numeral'
 import selectExpenses from '../selectors/expenses'
 import selectExpensesTotal from '../selectors/expensesTotal'
 
-const ExpnesesSummary = ({ expenseCount, expensesTotal }) => {
+export const ExpensesSummary = ({ expenseCount, expensesTotal }) => {
    const expenseWord = expenseCount === 1 ? 'expense' : 'expenses'
    const formattedExpensesTotal = numeral (expensesTotal / 100).format('$0,0.00')
 
@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ExpnesesSummary)
+export default connect(mapStateToProps)(ExpensesSummary)
