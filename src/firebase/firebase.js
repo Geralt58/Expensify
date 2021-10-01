@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import {
    getDatabase,
+   get,
    ref,
    push,
    set,
@@ -29,6 +30,7 @@ const database = getDatabase()
 
 export {
    push,
+   get,
    ref,
    set,
    onValue,
