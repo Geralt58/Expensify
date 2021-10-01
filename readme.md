@@ -24,3 +24,7 @@ heroku create geralt58-expensify
 git remote -v
 git add and push
 git push heroku master
+
+heroku config  //show all vairables
+heroku config:set KEY=value
+heroku config:unset KEY
