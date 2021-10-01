@@ -5,6 +5,7 @@ import {
    addExpense,
    startSetExpenses,
    editExpense,
+   startEditExpense,
    removeExpense,
    setExpenses,
    startRemoveExpense
@@ -58,6 +59,25 @@ test('should setup editExpense action object', () => {
          description: 'a',
          note: 'b'
       }
+   })
+})
+
+test('should edit expense from firebase', (done) => {
+   const store = createMockStore({})
+   const id = expenses[0].id
+   const updates ={amount: 210.45}
+   store.dispatch(startEditExpense(id, updates)).then(() => {
+      const actions = store.getActions()
+      expect(actions[0]).toEqual({
+         type: 'EDIT_EXPENSE',
+         id: expect.any(String),
+         updates
+      })
+      
+      return get(ref(database, `expenses/${id}`))
+   }).then((snapshot) => {
+      expect(snapshot.val().amount).toBe(updates.amount)
+      done()
    })
 })
 
