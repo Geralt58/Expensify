@@ -5,14 +5,10 @@ import {
    ref,
    push,
    set,
-   onValue,
-   onChildRemoved,
-   onChildChanged,
-   onChildAdded,
-   off,
    remove,
    update
 } from 'firebase/database'
+import { GoogleAuthProvider, getAuth ,onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth"
 
 const firebaseConfig = {
    apiKey: process.env.FIREBASE_API_KEY,
@@ -27,18 +23,20 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 
 const database = getDatabase()
+const googleAuthProvider = new GoogleAuthProvider()
+const auth = getAuth()
 
 export {
    push,
    get,
    ref,
    set,
-   onValue,
-   onChildRemoved,
-   onChildChanged,
-   onChildAdded,
-   off,
    remove,
    update,
+   onAuthStateChanged,
+   signInWithPopup,
+   signOut,
+   auth,
+   googleAuthProvider,
    database as default
 }
